@@ -57,7 +57,7 @@ public class Librarian{
             if (verifyMember(borrower, borrower.getName())) {
                 if (book.getStatus() == Status.AVAILABLE) {
                     book.changeOwner();
-                    book.updateStatus();
+                    book.updateStatus(Status.CHECKED_OUT);
                     book.setDate_of_purchase(date);
 
                 }
