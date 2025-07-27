@@ -2,12 +2,12 @@ package Library.Books;
 import Library.People.Author;
 import Library.People.Reader;
 import Library.enums.Status;
-
 import java.time.LocalDate;
 import java.util.Objects;
 
 
 public abstract class Book {
+    public static int idCounter = 0;
     private int bookID;
     private Author author;
     private String name;
@@ -18,7 +18,7 @@ public abstract class Book {
     private String category;
 
     public Book(int bookID, Author author, String name, Status status, int edition, LocalDate date_of_purchase, double price, String category) {
-        this.bookID = bookID;
+        this.bookID = idCounter++;
         this.author = author;
         this.name = name;
         this.status = status;

@@ -17,22 +17,22 @@ public class Reader extends Person{
         this.books = books;
     }
 
-    public void purchase_book(Book book) {
+    public void purchaseBook(Book book) {
         books.add(book);
         System.out.println(book + "has been purchased.");
     }
 
-    public void borrow_book(Book book) {
+    public void borrowBook(Book book) {
         books.add(book);
         System.out.println(book + "has been borrowed.");
     }
 
-    public void return_book(Book book) {
+    public void returnBook(Book book) {
         books.remove(book);
         System.out.println(book + "has been returned to the library and removed from your book list.");
     }
 
-    public void show_book() {
+    public void showBook() {
         System.out.println(books);
     }
 

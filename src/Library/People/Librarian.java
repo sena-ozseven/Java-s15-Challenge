@@ -1,15 +1,11 @@
 package Library.People;
 import Library.enums.Status;
-
-
-//librarian da bir person degil midirr?  - extends people diyemiyoz mu
-
 import Library.Books.Book;
-
 import java.time.LocalDate;
 import java.util.Set;
 
 public class Librarian{
+    private Set<Book> books;
     private String name;
     private String password;
 
@@ -44,7 +40,7 @@ public class Librarian{
         return false;
     }
 
-    public boolean verifyMember(Person reader, String targetMember) {
+    public boolean verifyMember(Reader reader, String targetMember) {
         if (!reader.getName().equalsIgnoreCase(targetMember)) {
             System.out.println(targetMember + "is not a member.");
             return false;
@@ -54,14 +50,13 @@ public class Librarian{
         }
     }
 
-    public void issueBook(Book book, Person borrower, LocalDate date) {
-        if (searchBook(Set < book >, book.getTitle())) {
+    public void issueBook(Book book, Reader borrower, LocalDate date) {
+        if (searchBook(books, book.getTitle())) {
             if (verifyMember(borrower, borrower.getName())) {
                 if (book.getStatus() == Status.AVAILABLE) {
                     book.changeOwner();
                     book.updateStatus(Status.CHECKED_OUT);
                     book.setDate_of_purchase(date);
-
                 }
             }
         }
