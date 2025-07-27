@@ -1,6 +1,8 @@
 package Library.People;
 import Library.enums.Status;
-//librarian da bir person degil midirr?  - extends people, Book dersek
+
+
+//librarian da bir person degil midirr?  - extends people diyemiyoz mu
 
 import Library.Books.Book;
 
@@ -65,5 +67,22 @@ public class Librarian{
         }
     }
 
+    public void returnBook(Book book) {
+        if (book.getStatus() != Status.AVAILABLE) {
+            book.updateStatus(Status.AVAILABLE);
+        } else {
+            System.out.println(book + " cannot be returned, it is already AVAILABLE.");
+        }
+    }
+
+    public void calculateFine() {}
+    public void createBill(Author author, Reader reader, Book book) {
+        System.out.println("==================== Library Receipt =========================");
+        System.out.println("                                                              ");
+        System.out.println("Book Details: " + book.getName()+", "+ book.getAuthor(author));
+        System.out.println("Receiver: " + reader);
+        System.out.println("Total: " + " ");
+        System.out.println("==============================================================");
+    }
 
 }
