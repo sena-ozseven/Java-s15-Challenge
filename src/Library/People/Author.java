@@ -6,6 +6,10 @@ import java.util.Set;
 public class Author extends Person {
     private Set<Book> books;
 
+    public Author(String name) {
+        super(name);
+    }
+
     public Author(String name, Set<Book> books) {
         super(name);
         this.books = books;
