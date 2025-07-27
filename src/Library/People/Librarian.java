@@ -4,6 +4,7 @@ import Library.enums.Status;
 
 import Library.Books.Book;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 public class Librarian{
@@ -51,7 +52,7 @@ public class Librarian{
         }
     }
 
-    public void issueBook(Book book, Person borrower, String date) {
+    public void issueBook(Book book, Person borrower, LocalDate date) {
         if (searchBook(Set < book >, book.getTitle())) {
             if (verifyMember(borrower, borrower.getName())) {
                 if (book.getStatus() == Status.AVAILABLE) {

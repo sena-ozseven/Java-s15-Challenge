@@ -2,19 +2,30 @@ package Library.Books;
 import Library.People.Author;
 import Library.enums.Status;
 
+import java.time.LocalDate;
 import java.util.Objects;
-
-// Author classını import etmediğim için kızmıyor?
 
 
 public abstract class Book {
-    private int book_ID;
+    private int bookID;
     private Author author;
     private String name;
     private Status status;
     private int edition;
-    private String date_of_purchase;
+    private LocalDate date_of_purchase;
     private double price;
+    private String category;
+
+    public Book(int book_ID, Author author, String name, Status status, int edition, LocalDate date_of_purchase, double price, String category) {
+        this.bookID = book_ID;
+        this.author = author;
+        this.name = name;
+        this.status = status;
+        this.edition = edition;
+        this.date_of_purchase = date_of_purchase;
+        this.price = price;
+        this.category = category;
+    }
 
     public String getTitle() {
         return name;
@@ -26,18 +37,8 @@ public abstract class Book {
     public abstract void display();
     public abstract void updateStatus();
 
-    public Book(int book_ID, Author author, String name, Status status, int edition, String date_of_purchase, double price) {
-        this.book_ID = book_ID;
-        this.author = author;
-        this.name = name;
-        this.status = status;
-        this.edition = edition;
-        this.date_of_purchase = date_of_purchase;
-        this.price = price;
-    }
-
     public int getBook_ID() {
-        return book_ID;
+        return bookID;
     }
 
     public String getName() {
@@ -52,12 +53,12 @@ public abstract class Book {
         return edition;
     }
 
-    public String getDate_of_purchase() {
+    public LocalDate getDate_of_purchase() {
         return date_of_purchase;
     }
 
     public void setBook_ID(int book_ID) {
-        this.book_ID = book_ID;
+        this.bookID = book_ID;
     }
 
     public void setAuthor(Author author) {
@@ -76,7 +77,7 @@ public abstract class Book {
         this.edition = edition;
     }
 
-    public void setDate_of_purchase(String date_of_purchase) {
+    public void setDate_of_purchase(LocalDate date_of_purchase) {
         this.date_of_purchase = date_of_purchase;
     }
 
@@ -84,12 +85,12 @@ public abstract class Book {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return book_ID == book.book_ID && edition == book.edition && Objects.equals(author, book.author) && Objects.equals(name, book.name) && status == book.status && Objects.equals(date_of_purchase, book.date_of_purchase);
+        return bookID == book.bookID && edition == book.edition && Objects.equals(author, book.author) && Objects.equals(name, book.name) && status == book.status && Objects.equals(date_of_purchase, book.date_of_purchase);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(book_ID, author, name, status, edition, date_of_purchase);
+        return Objects.hash(bookID, author, name, status, edition, date_of_purchase);
     }
 
     public double getPrice() {
@@ -99,4 +100,14 @@ public abstract class Book {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+
 }
