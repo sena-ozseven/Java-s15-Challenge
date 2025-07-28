@@ -39,7 +39,7 @@ public abstract class Book {
         return name;
     };
 
-    public Author getAuthor(Author author) {
+    public Author getAuthor() {
         return author;
     };
 

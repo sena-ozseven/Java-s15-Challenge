@@ -1,7 +1,12 @@
 package Library;
 import Library.Books.Book;
+import Library.People.Author;
+import Library.People.Librarian;
 import Library.People.Reader;
 
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -10,10 +15,86 @@ public class Library {
     private Set<Reader> readers;
     private Map<Reader, Set<Book>> mapOfOwnedBooks;
     private final double deposit = 3.3;
+    private Librarian Librarian;
 
-    public Library(Set<Book> books, Set<Reader> readers) {
+    public Library(Set<Book> books) {
         this.books = books;
-        this.readers = readers;
+        this.readers = new HashSet<>();
+        this.mapOfOwnedBooks = new HashMap<>();
+    }
+
+    public Book getBooksById(int bookId){
+        for(Book book : books){
+            if(book.getBookID() == bookId){
+                return book;
+            }
+        }
+        System.out.println(bookId + " is not found.");
+        return null;
+    }
+
+    public Book getBooksByName(String bookName){
+        for(Book book : books){
+            if(book.getTitle().equalsIgnoreCase(bookName)){
+                return book;
+            }
+        }
+        System.out.println(bookName + "is not found.");
+        return null;
+    }
+
+    public Book getBooksFromReadersList(String bookName){
+        for(Map.Entry<Reader, Set<Book>> books : mapOfOwnedBooks.entrySet()){
+            for(Book ownedBook : books.getValue()){
+                if(ownedBook.getName().equalsIgnoreCase(bookName)){
+                    return ownedBook;
+                }
+            }
+        }
+        System.out.println(bookName + " is not found.");
+        return null;
+    }
+
+    public Set<Book> getBooksByAuthor(Author author){
+        Set<Book> authorBooks = new HashSet<>();
+        for(Book book : books){
+            if(book.getAuthor().equals(author)){
+                authorBooks.add(book);
+            }
+        }
+        if(!authorBooks.isEmpty()){
+            return authorBooks;
+        }else {
+            System.out.println("not found");
+            return null;
+        }
+    }
+
+    public Set<Book> getBooksByCategory(String category){
+        Set<Book> categoryBooks = new HashSet<>();
+        for(Book item : books){
+            if(item.getCategory().equals(category)){
+                categoryBooks.add(item);
+            }
+        }
+        if(!categoryBooks.isEmpty()){
+            return categoryBooks;
+        }else {
+            System.out.println("not found");
+            return null;
+        }
+    }
+
+    public Reader getReaderByBookName(String bookName){
+        for(Map.Entry<Reader, Set<Book>> item : mapOfOwnedBooks.entrySet()){
+            for(Book book : item.getValue()){
+                if(book.getTitle().equalsIgnoreCase(bookName)){
+                    return item.getKey();
+                }
+            }
+        }
+        System.out.println("not found");
+        return null;
     }
 
     public Set<Book> getBooks() {
@@ -25,7 +106,10 @@ public class Library {
     }
 
     public void newBook(Set<Book> book) {
-
+        book.add((Book) book);
+    }
+    public void lendBook(Book book, Reader reader, LocalDate date) {
+        Librarian.issueBook(book, reader, date);
     }
 
 

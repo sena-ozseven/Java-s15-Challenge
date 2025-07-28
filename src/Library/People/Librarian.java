@@ -74,7 +74,7 @@ public class Librarian{
     public void createBill(Author author, Reader reader, Book book) {
         System.out.println("==================== Library Receipt =========================");
         System.out.println("                                                              ");
-        System.out.println("Book Details: " + book.getName()+", "+ book.getAuthor(author));
+        System.out.println("Book Details: " + book.getName()+", "+ book.getAuthor());
         System.out.println("Receiver: " + reader);
         System.out.println("Total: " + " ");
         System.out.println("==============================================================");
