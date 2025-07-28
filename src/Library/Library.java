@@ -15,7 +15,7 @@ public class Library {
     private Set<Reader> readers;
     private Map<Reader, Set<Book>> mapOfOwnedBooks;
     private final double deposit = 3.3;
-    private Librarian Librarian;
+    private Librarian librarian;
 
     public Library(Set<Book> books) {
         this.books = books;
@@ -29,7 +29,7 @@ public class Library {
                 return book;
             }
         }
-        System.out.println(bookId + " is not found.");
+        System.out.println("no record under the book id: " + bookId);
         return null;
     }
 
@@ -39,7 +39,7 @@ public class Library {
                 return book;
             }
         }
-        System.out.println(bookName + "is not found.");
+        System.out.println("no record under the book name: " + bookName);
         return null;
     }
 
@@ -51,7 +51,7 @@ public class Library {
                 }
             }
         }
-        System.out.println(bookName + " is not found.");
+        System.out.println(bookName + " is not found among the readers list.");
         return null;
     }
 
@@ -65,7 +65,7 @@ public class Library {
         if(!authorBooks.isEmpty()){
             return authorBooks;
         }else {
-            System.out.println("not found");
+            System.out.println("the book is not found by the given author name: " + author);
             return null;
         }
     }
@@ -80,7 +80,7 @@ public class Library {
         if(!categoryBooks.isEmpty()){
             return categoryBooks;
         }else {
-            System.out.println("not found");
+            System.out.println("the book is not found by the given category name: " + category);
             return null;
         }
     }
@@ -93,7 +93,7 @@ public class Library {
                 }
             }
         }
-        System.out.println("not found");
+        System.out.println("the reader is not found by the given book name: " + bookName);
         return null;
     }
 
@@ -109,7 +109,7 @@ public class Library {
         book.add((Book) book);
     }
     public void lendBook(Book book, Reader reader, LocalDate date) {
-        Librarian.issueBook(book, reader, date);
+        librarian.issueBook(book, reader, date);
     }
 
 
