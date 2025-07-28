@@ -97,6 +97,24 @@ public class Library {
         return null;
     }
 
+    public Reader getReaderByName(String name) {
+        for (Reader reader : readers) {
+            if(reader.getName().equalsIgnoreCase(name)) {
+                return reader;
+            }
+        }
+        System.out.println("no matches are found under the given name: " + name);
+        return null;
+    }
+
+    public void newBook(Set<Book> book) {
+        book.add((Book) book);
+    }
+
+    public void lendBook(Book book, Reader reader, LocalDate date) {
+        librarian.issueBook(book, reader, date);
+    }
+
     public Set<Book> getBooks() {
         return books;
     }
@@ -104,13 +122,4 @@ public class Library {
     public Set<Reader> getReaders() {
         return readers;
     }
-
-    public void newBook(Set<Book> book) {
-        book.add((Book) book);
-    }
-    public void lendBook(Book book, Reader reader, LocalDate date) {
-        librarian.issueBook(book, reader, date);
-    }
-
-
 }
