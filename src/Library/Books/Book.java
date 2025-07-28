@@ -17,22 +17,19 @@ public abstract class Book {
     private double price;
     private String category;
 
-    public Book(int bookID, Author author, String name, Status status, int edition, LocalDate date_of_purchase, double price, String category) {
+    public Book(Author author, String name, int edition, LocalDate date_of_purchase, double price, String category) {
         this.bookID = idCounter++;
         this.author = author;
         this.name = name;
-        this.status = status;
+        this.status = Status.AVAILABLE;
         this.edition = edition;
         this.date_of_purchase = date_of_purchase;
         this.price = price;
         this.category = category;
     }
 
-    public abstract void changeOwner();
-    public abstract void display();
-
-    public void updateStatus(Status newStatus) {
-        this.status = newStatus;
+    public void updateStatus(Status staus) {
+        this.status = staus;
     };
 
     public String getTitle() {

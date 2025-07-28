@@ -7,14 +7,17 @@ import java.util.Set;
 
 public class Reader extends Person{
     private Set<Book> books;
+    private double balance;
 
-    public Reader(String name) {
+    public Reader(String name, double balance) {
         super(name);
+        this.balance = balance;
     }
 
-    public Reader(String name, Set<Book> books) {
+    public Reader(String name, Set<Book> books, double balance) {
         super(name);
         this.books = books;
+        this.balance = balance;
     }
 
     public void purchaseBook(Book book) {
@@ -58,12 +61,18 @@ public class Reader extends Person{
     }
 
     @Override
-    public String toString() {
-        return "Reader{" +
-                "books=" + books +
-                '}';
+    public void whoyouare() {}
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     @Override
-    public void whoyouare() {}
+    public String toString() {
+        return super.toString();
+    }
 }

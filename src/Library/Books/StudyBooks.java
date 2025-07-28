@@ -6,17 +6,8 @@ import Library.enums.Status;
 import java.time.LocalDate;
 
 public class StudyBooks extends Book{
-    public StudyBooks(int bookID, Author author, String name, Status status, int edition, LocalDate date_of_purchase, double price, String category) {
-        super(bookID, author, name, status, edition, date_of_purchase, price, category);
+    public StudyBooks(Author author, String name, int edition, LocalDate date_of_purchase, double price, String category) {
+        super(author, name, edition, date_of_purchase, price, category);
     }
 
-    @Override
-    public void changeOwner() {
-
-    }
-
-    @Override
-    public void display() {
-
-    }
 }
