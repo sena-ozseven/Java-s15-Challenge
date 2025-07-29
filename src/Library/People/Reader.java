@@ -61,7 +61,9 @@ public class Reader extends Person{
     }
 
     @Override
-    public void whoyouare() {}
+    public void whoyouare() {
+        System.out.println("I am a reader.");
+    }
 
     public double getBalance() {
         return balance;

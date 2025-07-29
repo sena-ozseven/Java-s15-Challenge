@@ -45,7 +45,9 @@ public class Author extends Person {
     }
 
     @Override
-    public void whoyouare() {}
+    public void whoyouare() {
+        System.out.println("I am an author");
+    }
 
     @Override
     public String toString() {

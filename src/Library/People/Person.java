@@ -24,6 +24,8 @@ public abstract class Person {
         return Objects.equals(getName(), person.getName());
     }
 
+
+
     @Override
     public int hashCode() {
         return Objects.hashCode(getName());
